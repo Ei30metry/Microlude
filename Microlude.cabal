@@ -1,7 +1,7 @@
 cabal-version:  3.0
 name:           Microlude
-version:        0.10.6.0
-license:        Apache
+version:        0.0.0.1
+license:        Apache-2.0
 license-file:   LICENSE
 maintainer:     lennart@augustsson.net
 synopsis:       Basic libraries

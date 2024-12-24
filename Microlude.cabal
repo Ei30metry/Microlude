@@ -89,6 +89,7 @@ library
           Data.Kind
           Data.List
           Data.List.NonEmpty
+          Data.List.Utils
           Data.Maybe
           Data.Monoid
           Data.Num
@@ -158,7 +159,7 @@ library
           Text.Read.Lex
           Text.Show
           Unsafe.Coerce
-          Compat
+          MicroHs.Compat
 
       other-modules:
           Control.Exception.Internal

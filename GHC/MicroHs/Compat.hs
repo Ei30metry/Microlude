@@ -3,7 +3,7 @@
 {-# OPTIONS_GHC -Wno-orphans #-}
 {-# LANGUAGE DataKinds #-}
 -- Functions for GHC that are defined in the UHS libs.
-module Compat(module Compat, Type) where
+module MicroHs.Compat(module MicroHs.Compat, Type) where
 import Data.Maybe
 import Data.List
 import Data.Text(Text, append, pack)

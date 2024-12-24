@@ -1,6 +1,6 @@
 -- Copyright 2023 Lennart Augustsson
 -- See LICENSE file for full license.
-module Compat(rnfNoErr, rnfErr, NFData, appendDot) where
+module MicroHs.Compat(rnfNoErr, rnfErr, NFData, appendDot) where
 import Prelude()              -- do not import Prelude
 import Primitives
 import Data.Text
@@ -19,4 +19,3 @@ appendDot :: Text -> Text -> Text
 appendDot x y =
   primitive "bs++." x y
   --x `append` pack "." `append` y
-

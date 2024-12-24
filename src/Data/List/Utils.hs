@@ -1,6 +1,6 @@
 -- Copyright 2023 Lennart Augustsson
 -- See LICENSE file for full license.
-module MicroHs.List.Utils where
+module Data.List.Utils where
 import Prelude(); import MHSPrelude
 import Data.List
 

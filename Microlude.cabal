@@ -14,8 +14,20 @@ source-repository head
     type:     git
     location: https://github.com/Ei30metry/Microlude
 
+extra-source-files:
+      LICENSE
+      ghc/**/*.hs
+      src/**/*.hs
+      mhs/**/*.hs
+
+data-files:
+      src/**/*.hs
+      src/**/*.hs-boot
+
 library
     default-language: Haskell2010
+    default-extensions:  ScopedTypeVariables TypeSynonymInstances MultiParamTypeClasses
+                       FlexibleInstances BangPatterns
 
     if impl(ghc)
       exposed-modules:

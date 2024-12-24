@@ -1,7 +1,7 @@
 -- Copyright 2023 Lennart Augustsson
 -- See LICENSE file for full license.
 module Data.List.Utils where
-import Prelude(); import MHSPrelude
+import Prelude(); import Microlude
 import Data.List
 
 -- Various useful list functions.

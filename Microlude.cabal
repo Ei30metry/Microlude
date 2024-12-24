@@ -161,6 +161,7 @@ library
 
       other-modules:
           Control.Exception.Internal
+          Compat
           Control.Monad.ST_Type
           Data.Bool_Type
           Data.ByteString.Internal

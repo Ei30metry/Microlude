@@ -158,10 +158,10 @@ library
           Text.Read.Lex
           Text.Show
           Unsafe.Coerce
+          Compat
 
       other-modules:
           Control.Exception.Internal
-          Compat
           Control.Monad.ST_Type
           Data.Bool_Type
           Data.ByteString.Internal

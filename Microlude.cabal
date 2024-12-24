@@ -19,7 +19,8 @@ library
 
     if impl(ghc)
       exposed-modules:
-          Microlude
+          Microlude,
+          Data.List.Utils
 
       hs-source-dirs: ghc
       build-depends: base >= 4.10 && < 4.22,

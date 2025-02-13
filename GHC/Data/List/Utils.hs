@@ -72,3 +72,5 @@ findCommonPrefix ((x:xs) : ys) | Just ys' <- mapM (f x) ys = x : findCommonPrefi
 
 dropEnd :: Int -> [a] -> [a]
 dropEnd n = reverse . drop n . reverse
+
+someNewIdentityFunction = undefined

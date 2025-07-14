@@ -10,10 +10,10 @@ module System.FilePath(
     takeDirectory,
     (</>),
   ) where
-import Prelude(); import MHSPrelude
+import qualified Prelude(); import MHSPrelude
 import Data.List
 
-infixr 7 <.>, -<.>
+infixr 7 <.>
 infixr 5 </>
 
 (</>) :: FilePath -> FilePath -> FilePath

@@ -1,5 +1,6 @@
-module MHSPrelude(
+module Microlude(
   module Control.Applicative,
+  module Control.DeepSeq.Class,
   module Control.Error,
   module Control.Monad,
   module Control.Monad.Fail,
@@ -26,12 +27,18 @@ module MHSPrelude(
   module Data.Records,
   module Data.String,
   module Data.Tuple,
-  module System.IO,
+  module System.IO.Base,
   module Text.Show,
+  first, second,
   usingMhs, _wordSize, _isWindows,
+  appendDot,
+  wantGMP,
+  compiledWithMhs,
   ) where
-import Prelude()
+import qualified Prelude()
+--import Primitives(primRnfNoErr, primRnfErr)
 import Control.Applicative(Applicative(..))
+import Control.DeepSeq.Class
 import Control.Error(error, undefined)
 import Control.Monad(Monad(..), mapM, mapM_, sequence, sequence_, (=<<))
 import Control.Monad.Fail(MonadFail(..))
@@ -66,12 +73,38 @@ import Data.Records  -- needed for data types with fields
 import Data.String(IsString(..), lines, unlines, words, unwords)
 import Data.Tuple(fst, snd, curry, uncurry)
 import Data.Word(Word)
-import System.IO(IO, putChar, putStr, putStrLn, print, getLine, getContents, interact,
-                 FilePath, readFile, writeFile, appendFile,
-                 cprint, cuprint)
+import System.IO.Base(IO, putChar, putStr, putStrLn, print, getLine, getContents, interact,
+                      FilePath, readFile, writeFile, appendFile,
+                      cprint, cuprint)
 import Text.Show(Show(..), ShowS, shows, showChar, showString, showParen)
 import Primitives(_wordSize, _isWindows)
+import Data.Text(Text)
 
 -- So we can detect mhs vs ghc
 usingMhs :: Bool
 usingMhs = True
+
+-------
+
+appendDot :: Text -> Text -> Text
+appendDot x y =
+  _primitive "bs++." x y
+  --x `append` pack "." `append` y
+
+-- Exported by the runtime system to indicate if GMP is desired.
+foreign import capi "want_gmp" want_gmp :: Int
+
+wantGMP :: Bool
+wantGMP = want_gmp /= 0
+
+compiledWithMhs :: Bool
+compiledWithMhs = True
+
+instance NFData (a -> b) where
+  rnf f = seq f ()
+
+first :: forall a b c . (a -> c) -> (a, b) -> (c, b)
+first f (a, b) = (f a, b)
+
+second :: forall a b c . (b -> c) -> (a, b) -> (a, c)
+second f (a, b) = (a, f b)

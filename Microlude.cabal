@@ -184,7 +184,7 @@ library
       hs-source-dirs: ghc
       build-depends: base >= 4.10 && < 4.22,
                      deepseq >= 1.1 && < 1.6,
-                     ghc-prim >= 0.5 && < 0.12,
+                     ghc-prim >= 0.5 && < 0.13,
                      text >= 2.0 && < 2.3,
                      process >= 1.6 && < 1.8,
                      directory >= 1.2 && < 1.5,
